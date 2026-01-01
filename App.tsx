@@ -17,8 +17,10 @@ const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -50,21 +52,21 @@ const App: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  if (!isMounted) return null;
+
   return (
-    <div className="relative min-h-screen bg-black text-white selection:bg-gold-400 selection:text-black">
+    <div className="relative min-h-screen bg-black text-white selection:bg-gold-400 selection:text-black font-sans">
       <PremiumBackground />
       
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${isScrolled ? 'py-4 bg-black/90 backdrop-blur-xl border-b border-white/5 shadow-2xl' : 'py-8 bg-transparent'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-700 ${isScrolled ? 'py-4 bg-black/95 backdrop-blur-2xl border-b border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.5)]' : 'py-8 bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div 
             onClick={(e) => scrollToSection(e, 'top')} 
-            className="flex items-center gap-4 group cursor-pointer"
+            className="flex flex-col cursor-pointer group"
           >
-            <div className="flex flex-col">
-              <span className="text-2xl md:text-3xl font-serif font-black tracking-[0.2em] leading-none text-white group-hover:text-gold-400 transition-colors uppercase">BHSK</span>
-              <span className="text-[8px] uppercase tracking-[0.5em] text-gray-500 font-bold mt-1 group-hover:text-gray-300 transition-colors">Medical Branding</span>
-            </div>
+            <span className="text-2xl md:text-3xl font-serif font-black tracking-[0.2em] leading-none text-white group-hover:text-gold-400 transition-colors uppercase">BHSK</span>
+            <span className="text-[8px] uppercase tracking-[0.5em] text-gray-500 font-bold mt-1 group-hover:text-gray-300 transition-colors">Medical Branding</span>
           </div>
 
           <div className="hidden lg:flex items-center gap-10">
@@ -80,7 +82,7 @@ const App: React.FC = () => {
             ))}
             <button 
               onClick={() => setIsAdminOpen(true)}
-              className="p-2 text-gray-600 hover:text-gold-400 transition-colors outline-none"
+              className="p-2 text-gray-600 hover:text-gold-400 transition-colors outline-none ml-4"
               title="Admin Settings"
             >
               <Settings size={18} />
@@ -94,7 +96,7 @@ const App: React.FC = () => {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 z-[150] bg-black transition-all duration-700 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-[150] bg-black transition-all duration-700 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}>
         <div className="flex flex-col items-center justify-center h-full space-y-12">
           {navItems.map((item) => (
             <button 
@@ -114,7 +116,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <main id="top">
+      <main id="top" className="relative z-10">
         <Hero />
         <GrowthSection />
         <Vision />
