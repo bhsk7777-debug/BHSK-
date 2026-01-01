@@ -7,7 +7,6 @@ import ExpertiseSection from './components/ExpertiseSection';
 import Vision from './components/Vision';
 import TeamSection from './components/TeamSection';
 import Services from './components/Features';
-import References from './components/References';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AdminDashboard from './components/AdminDashboard';
@@ -32,7 +31,6 @@ const App: React.FC = () => {
     { name: 'Vision', target: 'vision' },
     { name: 'Expertise', target: 'expertise' },
     { name: 'Solutions', target: 'solutions' },
-    { name: 'Portfolio', target: 'references' },
     { name: 'Contact', target: 'contact' },
   ];
 
@@ -65,7 +63,7 @@ const App: React.FC = () => {
             onClick={(e) => scrollToSection(e, 'top')} 
             className="flex flex-col cursor-pointer group"
           >
-            <span className="text-2xl md:text-3xl font-serif font-black tracking-[0.2em] leading-none text-white group-hover:text-gold-400 transition-colors uppercase">BHSK</span>
+            <span className="text-2xl md:text-3xl font-serif font-black tracking-[0.2em] Ace leading-none text-white group-hover:text-gold-400 transition-colors uppercase">BHSK</span>
             <span className="text-[8px] uppercase tracking-[0.5em] text-gray-500 font-bold mt-1 group-hover:text-gray-300 transition-colors">Medical Branding</span>
           </div>
 
@@ -123,7 +121,6 @@ const App: React.FC = () => {
         <ExpertiseSection />
         <TeamSection />
         <Services />
-        <References />
         <Contact />
       </main>
 
