@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BHSK Medical | Premium Hospital Branding</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                900: '#000000',
+                950: '#050505',
+              },
+              gold: {
+                200: "#EAD998",
+                300: "#DFC570",
+                400: "#D4AF37",
+                500: "#C5A028",
+                600: "#B08D22",
+              },
+            },
+            fontFamily: {
+              sans: ['"Noto Sans KR"', 'sans-serif'],
+              serif: ['"Noto Serif KR"', 'serif'],
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'shimmer': 'shimmer 3s linear infinite',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(40px) scale(0.95)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '200% 0' },
+                '100%': { backgroundPosition: '-200% 0' }
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #000000;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+        word-break: keep-all;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, h4, .serif {
+        font-family: 'Noto Serif KR', serif;
+      }
+      .gold-text {
+        color: #D4AF37;
+        font-weight: 700;
+      }
+      .gold-gradient-text {
+        background: linear-gradient(to right, #D4AF37, #F9F1D8, #B08D22);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+      }
+      .border-gold-soft {
+        border: 1px solid rgba(212, 175, 55, 0.2);
+      }
+      .bg-black-soft {
+        background-color: #0a0a0a;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #D4AF37;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react": "https://esm.sh/react@^19.2.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.560.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
